@@ -19,7 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/ola', function (){
+Route::get('produtos', 'App\Http\Controllers\MeuControlador@produtos');
+Route::get('nome', 'App\Http\Controllers\MeuControlador@getNome');
+Route::get('idade', 'App\Http\Controllers\MeuControlador@getIdade');
+Route::get('multiplicar/{n1}/{n2}', 'App\Http\Controllers\MeuControlador@multiplicar');
+
+Route::resource('clientes', 'App\Http\Controllers\ClienteControlador');      //pega todos os recursos, métodos ou funções e as rotas do controlador
+
+/*Route::get('/ola', function (){
     echo "Olá";
 });
 
@@ -91,6 +98,4 @@ Route::patch('/requisicoes', function(Request $request){
 
 Route::options('/requisicoes', function(Request $request){ 
     return 'Hello OPTIONS';
-});
-
-
+});*/
